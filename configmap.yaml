@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: netbird-config
+  namespace: netbird
+data:
+  NETBIRD_DOMAIN: "13.127.176.147"
+
+  NETBIRD_MGMT_API_ENDPOINT: "http://13.127.176.147:30073"
+  NETBIRD_SIGNAL_ENDPOINT: "http://13.127.176.147:30000"
+
+  TURN_SERVER: "13.127.176.147:3478"
