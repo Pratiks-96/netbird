@@ -16,11 +16,16 @@ spec:
       containers:
         - name: management
           image: netbirdio/management:latest
-          envFrom:
-            - configMapRef:
-                name: netbird-config
           ports:
             - containerPort: 33073
+          volumeMounts:
+            - name: management-config
+              mountPath: /etc/netbird
+              readOnly: true
+      volumes:
+        - name: management-config
+          configMap:
+            name: netbird-management-config
 ---
 apiVersion: v1
 kind: Service
