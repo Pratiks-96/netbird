@@ -5,7 +5,7 @@ metadata:
   namespace: netbird
 data:
   config.yaml: |
-    issuer: http://13.127.176.147:8082/
+    issuer: http://3.108.237.19:30556
 
     storage:
       type: memory
@@ -18,8 +18,7 @@ data:
         name: NetBird
         secret: secret
         redirectURIs:
-          - http://13.127.176.147:8081/*
-          - http://13.127.176.147:8081/*
+          - http://3.108.237.19:30080/*
 
     enablePasswordDB: true
 
@@ -27,5 +26,4 @@ data:
       - email: admin@netbird.local
         username: admin
         userID: "1"
-        # password: admin123
         hash: "$2y$12$KIXQqv3ZcQh9Qm1vQq3o7eOq6G1Y9s0n9g0JQhG3m8q7c0qv1n5e"
