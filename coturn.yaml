@@ -39,11 +39,13 @@ spec:
   selector:
     app: coturn
   ports:
-    - port: 3478
+    - name: turn-udp
+      port: 3478
       targetPort: 3478
       nodePort: 30478
       protocol: UDP
-    - port: 3478
+    - name: turn-tcp
+      port: 3478
       targetPort: 3478
       nodePort: 30479
       protocol: TCP
