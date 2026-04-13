@@ -13,19 +13,31 @@ spec:
       labels:
         app: netbird-management
     spec:
+      initContainers:
+        - name: copy-config
+          image: busybox
+          command: ["sh", "-c", "cp /config/management.json /etc/netbird/management.json"]
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: writable-config
+              mountPath: /etc/netbird
+
       containers:
         - name: management
           image: netbirdio/management:latest
           ports:
             - containerPort: 33073
           volumeMounts:
-            - name: management-config
+            - name: writable-config
               mountPath: /etc/netbird
-              readOnly: true
+
       volumes:
-        - name: management-config
+        - name: config
           configMap:
             name: netbird-management-config
+        - name: writable-config
+          emptyDir: {}
 ---
 apiVersion: v1
 kind: Service
