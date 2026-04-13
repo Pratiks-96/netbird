@@ -37,7 +37,7 @@ data:
         "Address": "0.0.0.0:33073"
       },
       "Auth": {
-        "Issuer": "http://13.127.176.147:30090/realms/netbird",
+        "Issuer": "http://13.127.176.147:8080/realms/netbird",
         "Audience": "netbird",
         "UserIDClaim": "preferred_username"
       }
