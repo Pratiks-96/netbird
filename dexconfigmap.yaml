@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dex-config
+  namespace: netbird
+data:
+  config.yaml: |
+    issuer: http://3.108.237.19:30556
+
+    storage:
+      type: memory
+
+    web:
+      http: 0.0.0.0:5556
+
+    staticClients:
+      - id: netbird
+        redirectURIs:
+          - http://3.108.237.19:30080/*
+        name: NetBird
+        secret: secret
+
+    enablePasswordDB: true
+
+    staticPasswords:
+      - email: admin@local
+        hash: $2y$12$KIXQe... (you can replace later)
+        username: admin
+        userID: 1
