@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: netbird-management-config
+  namespace: netbird
+data:
+  management.json: |
+    {
+      "StunServers": [
+        {
+          "URI": "stun:13.127.176.147:3478"
+        }
+      ],
+      "TURNConfig": {
+        "TimeBasedCredentials": false,
+        "Credentials": [
+          {
+            "Username": "test",
+            "Password": "test123"
+          }
+        ],
+        "Turns": [
+          {
+            "URI": "turn:13.127.176.147:3478",
+            "Proto": "udp"
+          },
+          {
+            "URI": "turn:13.127.176.147:3478",
+            "Proto": "tcp"
+          }
+        ]
+      },
+      "Signal": {
+        "URI": "http://13.127.176.147:30000"
+      },
+      "HttpConfig": {
+        "Address": "0.0.0.0:33073"
+      }
+    }
